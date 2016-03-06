@@ -23,6 +23,17 @@ angular.module('shareTrace', ['ionic', 'ngCordova', 'shareTrace.controllers', 's
     });
   })
 
+  .config(function($ionicConfigProvider) {
+    $ionicConfigProvider.views.transition('ios');
+    $ionicConfigProvider.backButton.previousTitleText(true);
+    $ionicConfigProvider.form.checkbox('circle');
+    $ionicConfigProvider.form.toggle('large');
+    $ionicConfigProvider.spinner.icon('ios');
+    $ionicConfigProvider.tabs.style('standard');
+    $ionicConfigProvider.tabs.position('bottom');
+
+  })
+
   .config(function ($stateProvider, $urlRouterProvider) {
 
     // Ionic uses AngularUI Router which uses the concept of states

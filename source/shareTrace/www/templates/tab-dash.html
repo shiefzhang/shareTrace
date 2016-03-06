@@ -1,5 +1,17 @@
 <ion-view view-title="Dashboard">
   <ion-content>
+    <div class="button-bar">
+      <button class="button button-positive" ng-click="getPos()">当前坐标</button>
+      <button class="button button-energized" ng-click="startWatch()">持续监视</button>
+      <button class="button button-balanced" ng-click="stopWatch()">关闭监视</button>
+      <button class="button button-royal" ng-click="scanBar()">读条码</button>
+    </div>
+    <div class="item">
+      <pre ng-bind="test | json"></pre>
+    </div>
+    <div class="item item-assertive">
+      <pre ng-bind="err | json"></pre>
+    </div>
     <!--
     <app-map style="height:500px;margin:12px;box-shadow:0 3px 25px black;"
              options="mapOptions" class="baidumap"> </app-map>
