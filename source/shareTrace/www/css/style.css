@@ -1,1 +1,34 @@
 /* Empty. Add your own CSS if you like */
+
+.parent {
+  margin: 0;
+  text-align: center
+}
+
+.parent2 {
+  margin: 0 1em 0 1em;
+  text-align: left;
+}
+
+.column {
+  float: left;
+  display: inline-block;
+  width: 20%;
+  padding-left: 0;
+  box-sizing: border-box;
+}
+
+.left {
+  width: 20%;
+  float: left;
+}
+
+.right-fix {
+  width: 100%;
+  margin-left: -20%;
+  float: right;
+}
+
+.right {
+  margin-left: 20%;
+}

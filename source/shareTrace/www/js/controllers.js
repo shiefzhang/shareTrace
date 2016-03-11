@@ -90,19 +90,38 @@ angular.module('shareTrace.controllers', [])
 
   })
 
-  .controller('ChatsCtrl', function ($scope, Chats) {
-    // With the new view caching in Ionic, Controllers are only called
-    // when they are recreated or on app start, instead of every page change.
-    // To listen for when this page is active (for example, to refresh data),
-    // listen for the $ionicView.enter event:
-    //
-    //$scope.$on('$ionicView.enter', function(e) {
-    //});
+  .controller('ChatsCtrl', function ($scope, $http, $q, $ionicLoading, Chats) {
 
     $scope.chats = Chats.all();
     $scope.remove = function (chat) {
       Chats.remove(chat);
     };
+
+    // 显示加载动画
+    $ionicLoading.show({
+      template: 'Loading...'
+    });
+
+    var getWeather = $http.jsonp('http://wthrcdn.etouch.cn/weather_mini',
+      {
+        params: {
+          city: '上海', callback: 'JSON_CALLBACK'
+        }
+      });
+
+    $q.all([getWeather])
+      .then(function (respond) {
+        $scope.weather = respond[0].data.data;
+        $scope.forecast = $scope.weather.forecast;
+      })
+      .catch(function (err) {
+        console.log(err);
+      })
+      .finally(function () {
+        $ionicLoading.hide();
+      });
+
+
   })
 
   .controller('ChatDetailCtrl', function ($scope, $stateParams, Chats) {

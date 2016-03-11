@@ -1,5 +1,6 @@
 <ion-view view-title="Chats">
   <ion-content>
+    <!--
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
         <img ng-src="{{chat.face}}">
@@ -12,5 +13,43 @@
         </ion-option-button>
       </ion-item>
     </ion-list>
+    -->
+    <div class="parent">
+      <div class="column" ng-repeat="row in forecast" ng-bind="row.date"></div>
+    </div>
+    <div class="parent">
+      <div class="column" ng-repeat="row in forecast" ng-bind="row.type"></div>
+    </div>
+    <div class="parent">
+      <div class="column" ng-repeat="row in forecast" ng-bind="row.high"></div>
+    </div>
+    <div class="parent">
+      <div class="column" ng-repeat="row in forecast" ng-bind="row.low"></div>
+    </div>
+    <div class="parent">
+      <div class="column" ng-repeat="row in forecast" ng-bind="row.fengxiang"></div>
+    </div>
+    <div class="parent">
+      <div class="column" ng-repeat="row in forecast" ng-bind="row.fengli"></div>
+    </div>
+    <hr>
+    <div class="parent2">
+      <div class="left">感冒指数:</div>
+      <div class="right-fix">
+        <div class="right" ng-bind="weather.ganmao"></div>
+      </div>
+    </div>
+    <hr style="width: 100%">
+    <div class="parent2">
+      <div class="left">AQI:</div>
+      <div class="right-fix">
+        <div class="right" ng-bind="weather.aqi"></div>
+      </div>
+    </div>
+    <hr style="width: 100%">
+    <div class="item">
+      <pre ng-bind="test | json"></pre>
+    </div>
+
   </ion-content>
 </ion-view>
